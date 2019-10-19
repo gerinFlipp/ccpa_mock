@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".MainActivity">
+
+        <LinearLayout
+            android:id="@+id/Ccpa_title_layout"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/ccpa_first_name_text_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/Ccpa_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Request Your Data"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Ccpa_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="In accordance with CCPA, you may request your data from the Flipp app" />
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ccpa_email_text_field"
+            style="@style/Ccpa.TextInputLayout"
+            android:layout_width="324dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Email"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@null"
+            app:layout_constraintBottom_toTopOf="@+id/Ccpa_radiogroup_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ccpa_last_name_text_field">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ccpa_email_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ccpa_first_name_text_field"
+            style="@style/Ccpa.TextInputLayout"
+            android:layout_width="324dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="First Name"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@null"
+            app:layout_constraintBottom_toTopOf="@+id/ccpa_last_name_text_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ccpa_title_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ccpa_first_name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ccpa_last_name_text_field"
+            style="@style/Ccpa.TextInputLayout"
+            android:layout_width="324dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Last Name"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@null"
+            app:layout_constraintBottom_toTopOf="@+id/ccpa_email_text_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ccpa_first_name_text_field">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ccpa_last_name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioGroup
+            android:id="@+id/Ccpa_radiogroup_options"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/Ccpa_checkbox_option"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ccpa_email_text_field">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get my data" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete my data" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Do not sell my data" />
+
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/Ccpa_checkbox_option"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toTopOf="@+id/submit_form_button"
+            app:layout_constraintTop_toBottomOf="@+id/Ccpa_radiogroup_options"
+            android:text="I am a resident of California, USA"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit_form_button"
+            style="@style/Ccpa.Button.TextButton.Submit"
+            android:layout_width="362dp"
+            android:layout_height="55dp"
+            android:text="Submit"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ccpa_checkbox_option" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
