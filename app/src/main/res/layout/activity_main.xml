@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:fillViewport="true"
     tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/Ccpa_title_layout"
@@ -39,30 +43,6 @@
                 android:text="In accordance with CCPA, you may request your data from the Flipp app" />
 
         </LinearLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ccpa_email_text_field"
-            style="@style/Ccpa.TextInputLayout"
-            android:layout_width="324dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:hint="Email"
-            app:errorEnabled="true"
-            app:errorIconDrawable="@null"
-            app:layout_constraintBottom_toTopOf="@+id/Ccpa_radiogroup_options"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ccpa_last_name_text_field">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ccpa_email_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="text"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ccpa_first_name_text_field"
@@ -112,6 +92,41 @@
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ccpa_email_text_field"
+            style="@style/Ccpa.TextInputLayout"
+            android:layout_width="324dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Email"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@null"
+            app:layout_constraintBottom_toTopOf="@+id/Ccpa_radiogroup_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ccpa_last_name_text_field">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ccpa_email_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/Ccpa_checkbox_option"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:text="I am a resident of California, USA"
+            app:layout_constraintBottom_toTopOf="@+id/Ccpa_disclaimer_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ccpa_radiogroup_options" />
+
         <RadioGroup
             android:id="@+id/Ccpa_radiogroup_options"
             android:layout_width="362dp"
@@ -127,28 +142,55 @@
                 android:layout_height="wrap_content"
                 android:text="Get my data" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="subtitle 1" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Delete my data" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="subtitle 2" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Do not sell my data" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="subtitle 3" />
+
         </RadioGroup>
 
-        <CheckBox
-            android:id="@+id/Ccpa_checkbox_option"
-            android:layout_width="362dp"
+        <TextView
+            android:id="@+id/Ccpa_disclaimer_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_margin="0dp"
+            android:maxLines="10"
+            android:padding="10dp"
             app:layout_constraintBottom_toTopOf="@+id/submit_form_button"
-            app:layout_constraintTop_toBottomOf="@+id/Ccpa_radiogroup_options"
-            android:text="I am a resident of California, USA"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ccpa_checkbox_option"
+            android:text="disclaimer \n
+\t\t\t\t . \n
+\t\t\t\t . \n
+\t\t\t\t . \n
+\t\t\t\t . \n
+\t\t\t\t . \n
+\t\t\t\t . \n
+\t last line
+"
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/submit_form_button"
@@ -161,6 +203,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Ccpa_checkbox_option" />
+            app:layout_constraintTop_toBottomOf="@+id/Ccpa_disclaimer_text" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
