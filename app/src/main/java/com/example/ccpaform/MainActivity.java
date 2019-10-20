@@ -1,8 +1,10 @@
 package com.example.ccpaform;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.KeyEvent;
@@ -11,6 +13,7 @@ import android.view.View.OnKeyListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     TextInputLayout mEmailTextLayout;
     TextInputEditText mEmailEditText;
     Button mSubmitButton;
+    AlertDialog.Builder mBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         mEmailTextLayout = findViewById(R.id.ccpa_email_text_field);
         mEmailEditText = findViewById(R.id.ccpa_email_edit_text);
         mSubmitButton = findViewById(R.id.submit_form_button);
+
+        mBuilder = new AlertDialog.Builder(this);
 
 //        mFirstNameEditText.setOnKeyListener(getEditTextOnKeyListener());
         mSubmitButton.setOnClickListener(getButtonOnClickListener());
@@ -63,6 +69,25 @@ public class MainActivity extends AppCompatActivity {
 
                 InputMethodManager inputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                 inputManager.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
+
+                mBuilder.setMessage("Your data cannot be recovered")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(getApplicationContext(), "Deleting data", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                                Toast.makeText(getApplicationContext(), "Data not deleted", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                AlertDialog alertDialog = mBuilder.create();
+                alertDialog.setTitle("Do you want to delete your data?");
+                alertDialog.show();
             }
         };
     }
