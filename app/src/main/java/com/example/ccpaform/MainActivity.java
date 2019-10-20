@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
@@ -99,14 +100,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void validateEmail() {
+        // check null email
         EditText emailEditText = mEmailTextLayout.getEditText();
         if (emailEditText == null) {
             mEmailTextLayout.setError("Please enter a valid email address");
             return;
         }
 
+        // check empty email
         String emailInput = emailEditText.getText().toString().trim();
         if (emailInput.isEmpty()) {
+            mEmailTextLayout.setError("Please enter a valid email address");
+            return;
+        }
+
+        // check incorrect email format
+        if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
             mEmailTextLayout.setError("Please enter a valid email address");
             return;
         }
