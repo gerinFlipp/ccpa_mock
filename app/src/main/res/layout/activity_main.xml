@@ -181,23 +181,17 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Ccpa_checkbox_option"
-            android:text="disclaimer \n
-\t\t\t\t . \n
-\t\t\t\t . \n
-\t\t\t\t . \n
-\t\t\t\t . \n
-\t\t\t\t . \n
-\t\t\t\t . \n
-\t last line
-"
+            android:text="disclaimer"
             />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/submit_form_button"
-            style="@style/Ccpa.Button.TextButton.Submit"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="362dp"
             android:layout_height="55dp"
+            android:layout_margin="8dp"
             android:text="Submit"
+            android:enabled="false"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
